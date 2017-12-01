@@ -946,11 +946,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'h1',
-    null,
-    'ver'
-), document.getElementById('root'));
+class Square extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+    render() {
+        console.log(1);
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'button',
+            { className: 'square', onClick: () => this.setState({ value: 'X' }) },
+            this.props.value
+        );
+    }
+}
+class Board extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+    renderSquare(i) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Square, { value: i });
+    }
+    render() {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'board-row' },
+                this.renderSquare(0),
+                this.renderSquare(1),
+                this.renderSquare(2)
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'board-row' },
+                this.renderSquare(3),
+                this.renderSquare(4),
+                this.renderSquare(5)
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'board-row' },
+                this.renderSquare(6),
+                this.renderSquare(7),
+                this.renderSquare(8)
+            )
+        );
+    }
+}
+Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Board, null), document.getElementById('root'));
 
 /***/ }),
 /* 15 */
